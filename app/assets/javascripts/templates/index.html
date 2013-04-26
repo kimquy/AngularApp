@@ -1,0 +1,16 @@
+<table class="table table-hover">
+	<tr ng-repeat="g in groups">
+		<td>
+			<a ng-href="/#/lists/{{g.group.id}}">{{g.group.name}}</a>
+			<a class="icon-remove" ng-click="deleteGroup($index, g)"></a>
+		</td>
+	</tr>
+</table>
+
+<div ng-model="emptyGroupName" class="myAlertError">{{emptyGroupName}}
+</div>
+
+<form class="form-inline">
+<input type="text" ng-model="groupName">
+<button class="btn btn-primary" ng-click="addGroup()">Add Group</button>
+</form>
