@@ -21,13 +21,13 @@ Group.create(name: "Group 7")
 Group.create(name: "Group 8")
 
 
-List.create(name: 'List 1', group_id: 17)
-List.create(name: 'List 2', group_id: 17)
-List.create(name: 'List 3', group_id: 17)
-List.create(name: 'List 4', group_id: 17)
-List.create(name: 'List 5', group_id: 17)
-List.create(name: 'List 6', group_id: 17)
-List.create(name: 'List 7', group_id: 17)
+List.create(name: 'List 1', group_id: 1)
+List.create(name: 'List 2', group_id: 1)
+List.create(name: 'List 3', group_id: 1)
+List.create(name: 'List 4', group_id: 1)
+List.create(name: 'List 5', group_id: 1)
+List.create(name: 'List 6', group_id: 1)
+List.create(name: 'List 7', group_id: 1)
 
 
 Item.create(name: 'Item 1', list_id: 1)

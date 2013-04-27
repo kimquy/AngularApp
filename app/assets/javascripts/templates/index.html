@@ -1,8 +1,15 @@
+<h1>All Groups</h1>
 <table class="table table-hover">
 	<tr ng-repeat="g in groups">
 		<td>
 			<a ng-href="/#/lists/{{g.group.id}}">{{g.group.name}}</a>
-			<a class="icon-remove" ng-click="deleteGroup($index, g)"></a>
+
+			<span class="col2">
+				<a class="icon-edit" ng-click="editGroup($index)" ng-href="/#/groups/{{g.group.id}}"></a>
+				&nbsp;&nbsp;
+				<a class="icon-remove" ng-click="deleteGroup($index, g)"></a>
+			</span>
+
 		</td>
 	</tr>
 </table>

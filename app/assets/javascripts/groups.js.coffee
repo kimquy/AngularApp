@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 app = angular.module("RandomName", ["ngResource"])
 
 app.config ($routeProvider) ->
@@ -9,6 +10,10 @@ app.config ($routeProvider) ->
 		.when("/xinchao", {template: "xin chao from me"})
 		.when('/groups',{
 			templateUrl: 'assets/templates/index.html',
+			controller: 'groupCtrl'
+			})
+		.when('/groups/:id',{
+			templateUrl: 'assets/templates/editGroup.html',
 			controller: 'groupCtrl'
 			})
 		.when('/lists/:id',{
@@ -33,8 +38,11 @@ app.config ($routeProvider) ->
 
 	$scope.addGroup = ->
 		n = $scope.groups.length
-		lastG = $scope.groups[n-1]
-		nextIndex = lastG.group.id + 1
+		if n > 0
+			lastG = $scope.groups[n-1]
+			nextIndex = lastG.group.id + 1
+		else
+			nextIndex = 1
 
 		if $scope.groupName
 			$scope.emptyGroupName = ''  
@@ -43,7 +51,37 @@ app.config ($routeProvider) ->
 			Group.save({name: $scope.groupName, id: nextIndex})
 			$scope.groupName = ""
 		else
-			$scope.emptyGroupName = "Name can not be empty"
+			$scope.emptyGroupName = "Group name can not be empty"
+
+	$scope.editGroup = (i) ->
+		$scope.currentEditGroup = $scope.groups[i]
+
+	$scope.addList = ->
+		n = $scope.lists.length
+		if n > 0
+			lastL = $scope.lists[n-1]
+			nextIndex = lastL.list.id + 1
+		else
+			nextIndex = 1
+
+		if $scope.listName
+			$scope.emptyListName = ''
+			new_l = {"list": {name: $scope.listName, id: nextIndex, group_id: $routeParams.id}}
+			$scope.lists.push(new_l)
+			List.save({name: $scope.listName, group_id: $routeParams.id})
+			$scope.listName = " "
+		else
+			$scope.emptyListName = "List name can not be empty"
+
+
+	$scope.deleteList = (i, l) ->
+		$scope.lists.splice(i,1)
+		List.delete(id: l.list.id)
+
+
+
+
+
 
 
 
