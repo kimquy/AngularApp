@@ -1,6 +1,6 @@
 RandomNameWeb::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.assets.enabled = true
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -27,7 +27,7 @@ RandomNameWeb::Application.configure do
   # config.assets.css_compressor = :sass
 
   # Whether to fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -41,7 +41,6 @@ RandomNameWeb::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
-  config.assets.enabled = true
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
