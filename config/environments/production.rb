@@ -23,7 +23,9 @@ RandomNameWeb::Application.configure do
   config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor  = :uglifier
+  # config.assets.js_compressor  = :uglifier
+  config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(mangle: false) }
+
   # config.assets.css_compressor = :sass
 
   # Whether to fallback to assets pipeline if a precompiled asset is missed.
