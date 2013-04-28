@@ -13,6 +13,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require msgBox
 //= require angular
 //= require angular-resource
 //= require twitter/bootstrap

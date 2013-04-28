@@ -1,4 +1,11 @@
-<h2>All Groups</h2>
+<h3>All Groups
+
+<span class="floatRandomButton">
+	<a class="icon-random" ng-click="randomGroup()"></a>
+</span>
+
+</h3>
+
 <table class="table table-hover">
 	<tr ng-repeat="g in groups">
 		<td>
@@ -18,6 +25,6 @@
 </div>
 
 <form class="form-inline">
-<input type="text" ng-model="groupName">
-<button class="btn btn-primary" ng-click="addGroup()">Add Group</button>
+<input type="text" ng-model="groupName" class="input-xlarge">
+<button class="btn btn-primary" ng-click="addGroup()"><i class="icon-plus"></i></button>
 </form>

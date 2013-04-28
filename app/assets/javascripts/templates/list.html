@@ -1,4 +1,9 @@
-<h2>Lists</h2>
+<h3>Lists
+<span class="floatRandomButton">
+	<a class="icon-random" ng-click="randomList()"></a>
+</span>
+
+</h3>
 
 <table class="table table-hover">
 	<tr ng-repeat="l in lists">
@@ -20,6 +25,6 @@
 </div>
 
 <form class="form-inline">
-<input type="text" ng-model="listName">
-<button class="btn btn-primary" ng-click="addList()">Add List</button>
+<input type="text" ng-model="listName" class="input-xlarge">
+<button class="btn btn-primary" ng-click="addList()"><i class="icon-plus"></i></button>
 </form>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Little App - KimQuy</title>
+  <title>Small App - KimQuy</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -15,7 +15,7 @@
 
 <div class="navbar">
   <div class="navbar-inner">
-    <a class="brand" href="#/">Kimquy: Little App</a>
+    <a class="brand" href="#/"><i class="icon-home"></i>&nbsp;Kimquy: Small App</a>
     <!-- <ul class="nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">Link</a></li>
@@ -27,7 +27,7 @@
 
 	<%= yield %>
 
-	<%= debug(params) if Rails.env == "development" %>
+	<br/>
 
 	<div class="footer">
 	<p>@Long Nguyen 2013

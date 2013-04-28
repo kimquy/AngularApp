@@ -78,6 +78,26 @@ app.config ($routeProvider) ->
 		$scope.lists.splice(i,1)
 		List.delete(id: l.list.id)
 
+	$scope.randomGroup = ->
+		n = $scope.groups.length
+		if n == 0
+			$.msgBox({ title: "Error", content: "There is no group. Let add one", type: "error" })
+		else
+			i = Math.floor((Math.random()*n)+0);
+			g = $scope.groups[i]
+			name = g.group.name
+			$.msgBox({ title: "Group picked", content: name, type: "info" })
+
+
+	$scope.randomList = ->
+		n = $scope.lists.length
+		if n == 0
+			$.msgBox({ title: "Error", content: "There is no group. Let add one", type: "error" })
+		else
+			i = Math.floor((Math.random()*n)+0);
+			l = $scope.lists[i]
+			name = l.list.name
+			$.msgBox({ title: "List picked", content: name, type: "info" })
 
 
 
