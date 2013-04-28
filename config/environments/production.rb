@@ -1,4 +1,5 @@
 RandomNameWeb::Application.configure do
+  include Sprockets::LazyCompressor
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -28,7 +29,7 @@ RandomNameWeb::Application.configure do
   config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
 
   # Whether to fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
