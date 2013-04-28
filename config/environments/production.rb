@@ -1,5 +1,5 @@
 RandomNameWeb::Application.configure do
-  include Sprockets::LazyCompressor
+  include Sprockets
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
