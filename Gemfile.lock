@@ -153,7 +153,6 @@ DEPENDENCIES
   rails3_serve_static_assets!
   rails_log_stdout!
   sass-rails (~> 4.0.0.beta1)
-  sprockets
   sqlite3
   therubyracer
   thin
