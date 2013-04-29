@@ -25,12 +25,14 @@ app.config ($routeProvider) ->
 			controller: 'groupCtrl'
 			})
 
-@groupCtrl = ($scope, $resource, $routeParams) ->
+@groupCtrl = ($scope, $resource, $routeParams, $location, $http) ->
 	Group = $resource("/groups/:id")
-	List = $resource('/lists/:id', {id: '@id'}, { 'get': {method:'GET', isArray:true}})
+	List = $resource('/lists/:id', {id: '@id'}, { 'get': {method:'GET', isArray:true}, 'update': {method: "PUT"}})
+	GroupGroup = $resource("/groups/:id", {id: '@id'}, {update: {method: 'PUT'}})
 
 	$scope.groups = Group.query()
 	$scope.lists = List.get({group_id: $routeParams.id})
+	$scope.mygroup = GroupGroup.get(id: $routeParams.id)
 
 	$scope.deleteGroup = (i, g) ->
 		$scope.groups.splice(i,1)
@@ -52,9 +54,6 @@ app.config ($routeProvider) ->
 			$scope.groupName = ""
 		else
 			$scope.emptyGroupName = "Group name can not be empty"
-
-	$scope.editGroup = (i) ->
-		$scope.currentEditGroup = $scope.groups[i]
 
 	$scope.addList = ->
 		n = $scope.lists.length
@@ -92,12 +91,19 @@ app.config ($routeProvider) ->
 	$scope.randomList = ->
 		n = $scope.lists.length
 		if n == 0
-			$.msgBox({ title: "Error", content: "There is no group. Let add one", type: "error" })
+			$.msgBox({ title: "Error", content: "There is no list. Let add one", type: "error" })
 		else
 			i = Math.floor((Math.random()*n)+0);
 			l = $scope.lists[i]
 			name = l.list.name
 			$.msgBox({ title: "List picked", content: name, type: "info" })
+
+	$scope.updateGroup =  ->
+		url = '/groups/' + $routeParams.id
+		$http.put(url, $scope.mygroup)
+		$scope.updateSuccessMsg = 'update success'
+		
+
 
 
 

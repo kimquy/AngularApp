@@ -15,7 +15,9 @@ class GroupsController < ApplicationController
   end
 
   def update
-    respond_with Group.update(params[:id], params[:name])
+    params.permit!
+    g = Group.where(id: params[:id])
+    respond_with g.update(params[:id], params[:group])
   end
 
   def destroy

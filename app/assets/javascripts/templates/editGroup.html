@@ -1,11 +1,14 @@
-<h2>Edit Group</h2>
+<h3>Edit: {{mygroup.group.name}}</h3>
 <div class='updateBox'>
 
 <form class="form-horizontal">
 
-<label class="control-group">Name: <input type="text" value='testing'> </label>
-<label class="control-group">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Id:  <input type="text" value='1' readonly="readonly"> </label>
+<p ng-model='updateSuccessMsg' class="updateSuccessMsg">{{updateSuccessMsg}}</p>
 
-<div class="controls"><button type="submit" class="btn">Update</button></div>
+<label class="control-group">Name: <input type="text" ng-model="mygroup.group.name" > </label>
+<label class="control-group">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Id:  <input type="text" ng-model="mygroup.group.id" readonly="readonly"> </label>
+
+<div class="controls"><button type="submit" class="btn" ng-click="updateGroup()">Update</button></div>
 </form>
 </div>
+
