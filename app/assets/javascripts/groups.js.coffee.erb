@@ -91,7 +91,7 @@ app.config ($routeProvider) ->
 	$scope.randomList = ->
 		n = $scope.lists.length
 		if n == 0
-			$.msgBox({ title: "Error", content: "There is no list. Let add one", type: "error" })
+			$.msgBox({ title: "Error", content: "There is no item. Let add one", type: "error" })
 		else
 			i = Math.floor((Math.random()*n)+0);
 			l = $scope.lists[i]
